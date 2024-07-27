@@ -16,7 +16,7 @@ To get started with the project, follow these steps:
 
 Clone the repository:
 
-git clone https://github.com/your-username/ims-FE.git
+git clone https://github.com/Skilltop-Empire2/ims-FE.git
 cd inventory-system-frontend
 Install dependencies:
 
