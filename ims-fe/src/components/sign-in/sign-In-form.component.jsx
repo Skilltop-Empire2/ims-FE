@@ -68,7 +68,6 @@ function SignInForm() {
 
       <div className="signup-btn-wrapper">
         <button
-          // type="submit"
           className="btn btn-outline-light btn-lg btn-block btn-rounded btn-purple"
           onClick={handleSignInClick}
         >
