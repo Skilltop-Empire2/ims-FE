@@ -1,0 +1,267 @@
+:root {
+    --purple-color: #7D2CE0;        /* for right container background, and left title  */
+    --white-color: #FFFFFF;         /* general white  */
+    --faint-purple-color: #B0A6EE;
+}
+
+.white-col{
+    color: var(--white-color);
+}
+
+/* ----------------------Fonts---------------------- */  
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    size: 200px;
+    font-style: normal;
+}
+
+
+/* ----------------------Flex Container---------------------- */
+.flex-container {
+    display: flex;
+    height: 100% ;
+    width: 100%; 
+    gap: 0;
+    
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0px;   /* use this padding to control external side gaps/spacing :) */
+}
+
+
+/* ----------------------Left Container---------------------- */
+.left-container-signIn {
+    display: flex;
+    width: 55%;
+    height: auto;
+    top: 88px;
+    left: 199px;
+    right: 950px;
+    bottom: 89px;
+}
+
+
+.logo_div {
+    height: max-content;
+    width: max-content;
+    position: relative;
+}
+
+.logo_div img {
+    position: absolute;
+    width: auto;
+    height: auto;
+} 
+
+.left-inner-container {
+    position: relative;
+    width: 592px;
+    height: fit-content;
+    align-self: center;
+    margin: 0 auto;
+}
+
+.left-title-wrapper {
+    text-align: center;
+    width: auto;
+    height: 78px;
+    margin: 0 auto;
+}
+
+.left-title-wrapper h1 {
+    font-weight: 700;
+}
+
+.title-color {
+    color: var(--purple-color);  
+}
+
+.form-wrapper {
+    width: auto;
+    margin: 0 auto;
+}
+
+/* ----------------------Left container Form Inputs---------------------- */
+.rounded-10{
+    border-radius: 10px;
+}
+.rounded-10:focus {
+    box-shadow: 0 0 0 .2rem var(--faint-purple-color);
+}
+
+input:hover {
+    box-shadow: 0 1px 6px 0 #171717;
+}
+
+.form-control.rounded-10{
+    width: -webkit-fill-available;
+}
+
+.form-group.form-group {
+    margin-bottom: 40px;
+}
+
+form.signup-btn-wrapper {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* ----------------------Left Container Buttons--------------------- */
+.btn.btn-rounded {
+    border-radius: 30px;
+}
+  
+.btn.btn-purple {
+    font-family: "Inter", sans-serif;
+    background-color: var(--white-color);
+    color: #7D2CE0;
+    border-color: #7D2CE0;
+    width: 444px;
+    margin: 62px auto 40px auto;
+}
+
+.btn.btn-purple:hover {
+    background-color: var(--purple-color);
+    color: white;
+    box-shadow: 0 1px 6px 0 var(--faint-purple-color);
+}
+
+/* ---------------------- Left Container Links (for sigIn form)--------------------- */
+.link-wrapper {
+    text-align: center;
+    color: #bfc2c9;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.link-wrapper:hover {
+    color: var(--purple-color);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* ----------------------Right Container--------------------- */
+.right-container {
+    display: flex;
+    background-color: var(--purple-color);
+    width: 45%;
+    height: auto;
+    top: 89px;
+    left: 949px;
+    right: 218px;
+    bottom: 89px;
+}
+
+.right-inner-container {
+    text-align: center;
+    position: relative;
+    align-self: center; 
+    margin: 0 auto;
+}
+
+.right-inner-container p {                      /* <<<<< This targets the paragraph text */
+    font-family: "Poppins", sans-serif;
+    size: 24px;
+    margin-top: 26px;
+    color: var(--faint-purple-color);
+}
+
+/* ----------------------Right Container Buttons--------------------- */
+.btn.right-btn {
+    font-family: "Inter", sans-serif;
+    background-color: var(--white-color);
+    color: var(--purple-color);
+    margin-top: 77px;
+}
+
+.btn.right-btn:hover {
+    background-color: var(--faint-purple-color);
+    color: var(--white-color);
+    box-shadow: 0 1px 6px 0 var(--faint-purple-color);
+}
+
+
+
+
+
+
+
+/* ----------------------Media Query--------------------- */
+
+/* --------------------------------------------------------------- */
+            /* Major update needed for the media query */
+/* --------------------------------------------------------------- */
+
+/* @media (max-width: 1000px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .flex-container {
+        display:contents;
+        position: absolute;
+        flex-direction: column;
+        height: 100% ;
+        width: 100%; 
+        justify-self: center;
+        align-self: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        top: 0;
+    }
+
+    .left-container {
+        position: relative;
+        width: 100%;
+        height: 70%;
+        padding: 0;
+        justify-content: center;
+        align-content: center;
+    }
+    
+    .left-container-inner {
+        width: auto;
+        height: max-content;
+    }
+    
+    .right-container {
+        display: block;
+        position: relative;
+        background-color: rgb(129, 35, 217);
+        width: 100%;
+        height: auto;
+        padding: 0;
+        margin: auto;
+        align-content: center;
+        justify-items: center;
+        bottom: 0;
+    }
+    
+    .right-container-inner {
+        text-align: center;
+        position: relative;
+        bottom: 0;
+        padding-bottom: 20px;
+    }
+
+    form {
+        padding: 0 20px;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: xx-large;
+    }  
+}
+
+ */
