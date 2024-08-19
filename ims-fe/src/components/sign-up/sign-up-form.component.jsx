@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function SignUpForm() {
@@ -9,6 +9,18 @@ function SignUpForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // Email and password validation variables
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [displayEmailError, setDisplayEmailError] = useState(false);
+  const [displayPasswordError, setDisplayPasswordError] = useState(false);
+
+  // Email regex validation
+  const isEmailValid = (email) => {
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(email);
+  };
+
   const onNameChange = (event) => {
     event.preventDefault();
     setUserName(event.target.value);
@@ -16,28 +28,61 @@ function SignUpForm() {
 
   const onEmailChange = (event) => {
     event.preventDefault();
-    setEmail(event.target.value);
+    let emailValues = event.target.value;
+    setEmail(emailValues);
   };
+
+  // password validation and error messages
+  const isPasswordValid = (password) => {
+    if (password.length < 1) {
+      setPasswordError("Password field can't be empty.");
+    } else if (password.includes(" ")) {
+      setPasswordError("Password can't include spaces.");
+    } else if (password.length < 4) {
+      setPasswordError("Password must have at least four characters.");
+    } else {
+      setPasswordError("");
+    }
+  };
+
+  // Email error setter function
+  useEffect(() => {
+    if (!email) {
+      setEmailError("Email can't be empty.");
+    } else if (!isEmailValid(email)) {
+      setEmailError("Invalid email format.");
+    } else {
+      setEmailError("");
+    }
+
+    isPasswordValid(password);
+  });
 
   const onPasswordChange = (event) => {
     event.preventDefault();
-    setPassword(event.target.value);
+    let passwordValues = event.target.value;
+    setPassword(passwordValues);
   };
 
   async function registerSignUp() {
-    let response = await fetch("http://localhost:8080/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: userName,
-        email: email,
-        password: password,
-      }),
-    });
-    response = response.json();
-    (await response) === "success"
-      ? Navigate("/sign-in")
-      : alert("Something went wrong.");
+    if (!emailError && !passwordError) {
+      let response = await fetch("http://localhost:3005/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: userName,
+          email: email,
+          password: password,
+        }),
+      });
+      response = response.json();
+      (await response) === "success"
+        ? Navigate("/sign-in")
+        : alert("Something went wrong.");
+    } else {
+      setDisplayEmailError(true);
+      setDisplayPasswordError(true);
+    }
   }
 
   return (
@@ -73,6 +118,9 @@ function SignUpForm() {
           required
           onChange={onEmailChange}
         />
+        <p className="error-msg">
+          {displayEmailError ? <span>{emailError}</span> : <span></span>}
+        </p>
       </div>
 
       <div className="form-group">
@@ -89,6 +137,9 @@ function SignUpForm() {
           required
           onChange={onPasswordChange}
         />
+        <p className="error-msg">
+          {displayPasswordError ? <span>{passwordError}</span> : <span></span>}
+        </p>
       </div>
 
       <div className="signup-btn-wrapper">

@@ -6,6 +6,9 @@ import SignUpPage from "./pages/sign-up/sign-up-page";
 import SignInPage from "./pages/sign-in/sign-in-page";
 import PasswordRecoveryPage from "./pages/password-recovery/password-recovery-page";
 import HomePage from "./pages/home/home-page";
+import "./styles/general.styles.scss";
+
+import { SignedUpProvider } from "./contexts/sign-up.contexts";
 
 const App = () => {
   return (

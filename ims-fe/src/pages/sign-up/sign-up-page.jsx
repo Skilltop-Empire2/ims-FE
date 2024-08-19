@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import logo from "../../assets/images/2skill_empire_logo.png";
+import logo from "../../assets/images/ims_logo.png";
 import SignUpForm from "../../components/sign-up/sign-up-form.component";
 import "./sign-up-page.styles.css";
 

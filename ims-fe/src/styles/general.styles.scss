@@ -1,3 +1,62 @@
 $purple-color: #7D2CE0;
 $white-color: #FFFFFF;         /* general colors  */
 $faint-purple-color: #B0A6EE;
+
+body{
+    overflow: hidden;
+}
+
+/* ----------------------Error Messages---------------------- */
+.error-msg {
+    height: 24px;
+    color: red;
+}
+
+/* ----------------------Slide-In Notification---------------------- */
+.slide-in-notification-container{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; 
+
+
+    .slide-in-notification-msg-wrapper {
+        display: flex;
+        height: 30px;
+        width: auto;
+        text-align: center;
+    }
+    .slide-in-notification-msg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        overflow: hidden;
+        transition: 0.7s;
+        height: 50px;
+        width: 100vw;
+        background-color: $purple-color;
+        color: $white-color;
+        border: 1px solid $white-color;
+        border-radius: 5;
+        margin: auto;
+        align-content: center;
+    }
+
+}
+
+
+
+/* ----------------------Slide-In Notifiaction Animation---------------------- */
+.animate-up-down {
+    animation: slideDown .7s linear, slideUp 3s linear 10s forwards;
+    transition: ease-in-out;
+}
+
+@keyframes slideUp{
+    to{transform: translateY(-100px)}
+}
+
+@keyframes slideDown{
+    from{transform: translateY(-100px)}
+}
